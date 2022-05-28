@@ -1,0 +1,36 @@
+@charset "utf-8";
+form {
+    width: 50%;
+    margin: 0 auto;
+    margin-top: 100px;
+}
+textarea {
+    width: 100%;
+}
+span {
+    display: flex; 
+    justify-content: center;
+    width: 100px;
+}
+.reg_log_div{
+    margin-top: 15px;
+}
+.dashboard_choice{
+    margin: 0 auto;
+    margin-top: 80px;
+}
+.dashboard_choice a div{
+    transition: transform .2s;
+    transform: transform ease-in-out 0.2s;
+}
+.dashboard_choice div:hover{
+    transform: scale(1.1);
+}
+.chat_wrapper{
+    height: 70vh;
+}
+.chat_text{
+    height: 70%;
+    overflow: scroll;
+    overflow-x: hidden;
+}
