@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<html lang="en">	
+<html lang="en">
 <head>
-	<title>Dashboard</title>
+	<title>Poll</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->	
@@ -19,6 +19,7 @@
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="css/util.css">
 	<link rel="stylesheet" type="text/css" href="css/main.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
 <!--===============================================================================================-->
 </head>
 <body>
@@ -26,30 +27,16 @@
 	<div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-chat100">
-				<div class="col-md-12">
-					<span class="login100-form-title">Dashboard</span>
-							<a href="chat.html">
-								<div class = "text-center">
-									<div class="js-tilt" data-tilt>
-										<div class="container px-5">
-											<img src="https://www.superoffice.de/globalassets/home-com-website/resources/articles/visuals/chat-benefits/redesign_live-chat.png" class="img-fluid border rounded-3 shadow-lg mb-4" alt="Example image" width="400" loading="lazy">
-										</div>
-									</div>
-								</div>
-							</a>
-							<a href="poll.html">
-								<div class = "text-center">
-									<div class="js-tilt" data-tilt>
-										<div class="container px-5">
-											<img src="https://www.voxco.com/wp-content/uploads/2021/10/How-are-polls-conducted1.jpg" class="img-fluid border rounded-3 shadow-lg mb-4" alt="Example image" width="400" loading="lazy">
-										</div>
-									</div>
-								</div>
-							</a>
-						</div>
-					</div>
-				</div>
+
+				<form class="login100-form validate-form" action="../controller/login.php" method="post">
+					<span class="login100-form-title">
+						Poll
+					</span>
+                   
+				</form>
 			</div>
+		</div>
+	</div>
 	
 	
 
