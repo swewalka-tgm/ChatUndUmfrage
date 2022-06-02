@@ -12,7 +12,6 @@
     $link_create_poll = "create_poll.php";
     $link_logout = "inc/logout.php";    
     require("inc/header.inc.php");
-    require("inc/navbar.inc.php");
 
     $statement = $pdo -> query("SELECT  * FROM poll");
     $poll_arr = $statement -> fetchAll(PDO::FETCH_ASSOC);

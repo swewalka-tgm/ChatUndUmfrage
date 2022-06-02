@@ -27,16 +27,26 @@
           </div>";
     }
     ?>
-    <div class="container-lg border border-primary chat_wrapper rounded w-50 mt-5">
-      <h2 class="mt-3">Willkommen im Gruppenchat, <?=$username?>!</h2>
-      <div class="container-fluid border border-secondary rounded chat_text mt-4 w-90">
-          <?php echo $chats?>
+    <div class="limiter">
+      <div class="container-login100">
+        <div class="wrap-chat100 fixed-content">
+          <div class="col-md-12 text-center">
+            <span class="login100-form-title">
+              Chat
+            </span>
+            <div class="container-lg chat_wrapper fixed-content rounded w-50 mt-5">
+              <div class="container-fluid border fixed-content border-secondary rounded chat_text mt-4 w-90">
+              <?php echo $chats?>
+            </div>
+            <form action="" method="POST" class="mt-0">
+              <input type="text" class="form-control" id="msg" required name="msg">
+              <button type="submit" name="submit" class="btn btn-primary mt-3">Submit</button>
+            </form>
+          </div>
+        </div>
       </div>
-      <form action="" method="POST" class="mt-0">
-          <input type="text" class="form-control" id="msg" required name="msg">
-          <button type="submit" name="submit" class="btn btn-primary mt-3">Senden</button>
-      </form>
-    </div>
+  </div>
+	</div>
     <?php
     require("inc/footer.inc.php");
 ?>
