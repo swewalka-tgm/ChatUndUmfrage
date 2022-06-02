@@ -29,18 +29,23 @@
     ?>
     <div class="limiter">
       <div class="container-login100">
-        <div class="wrap-chat100 fixed-content">
-          <div class="col-md-12 text-center">
+        <div class="wrap-chat100">
+          <div class="col-md-12">
             <span class="login100-form-title">
               Chat
             </span>
-            <div class="container-lg chat_wrapper fixed-content rounded w-50 mt-5">
+            <div class="container-lg chat_wrapper fixed-content rounded">
               <div class="container-fluid border fixed-content border-secondary rounded chat_text mt-4 w-90">
               <?php echo $chats?>
             </div>
             <form action="" method="POST" class="mt-0">
-              <input type="text" class="form-control" id="msg" required name="msg">
-              <button type="submit" name="submit" class="btn btn-primary mt-3">Submit</button>
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group mt-3">
+                    <input type="text" name="msg" class="form-control" placeholder="Message">
+                  </div>
+                </div>
+              </div>
             </form>
           </div>
         </div>
