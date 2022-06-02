@@ -7,9 +7,9 @@
     require("inc/header.inc.php");
     require("inc/db.inc.php");
     //Login-Part
-    if(isset($_POST["username"]) || isset($_POST["passwd"])){
+    if(isset($_POST["username"]) || isset($_POST["pass"])){
         $username = $_POST["username"];
-        $passwd = $_POST["passwd"];
+        $passwd = $_POST["pass"];
         $statement = $pdo -> prepare ("SELECT * FROM users WHERE username = ?");
         $statement -> execute (array("$username"));
         $output = $statement -> fetchAll();
@@ -29,13 +29,17 @@
 <div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100">
-				<class=" login100-form validate-form" action="" method="post">
+				<div class="login100-pic js-tilt" data-tilt>
+					<img src="view/images/img-01.png" alt="IMG">
+				</div>
+				<form class = "login100-form validate-form" action="" method="post">
+					
 					<span class="login100-form-title">
 						Chat Login
 					</span>
 
 					<div class="wrap-input100 validate-input" data-validate = "Username is required">
-						<input class="input100" type="text" name="username" id="username" placeholder="Username">
+						<input class="input100" type="text" name="username" id="username" placeholder="Username" required>
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
 							<i class="fa fa-user" aria-hidden="true"></i>
@@ -43,7 +47,7 @@
 					</div>
 
 					<div class="wrap-input100 validate-input" data-validate = "Password is required">
-						<input class="input100" type="password" name="passwd" id="passwd" placeholder="Password">
+						<input class="input100" type="password" name="pass" id="pass" placeholder="Password" required>
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
 							<i class="fa fa-lock" aria-hidden="true"></i>
@@ -61,10 +65,7 @@
 							<i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
 						</a>
 					</div>
-				</form>
-                <?php
-                    echo $errmsg;
-                ?>        
+				</form>      
 			</div>
 		</div>
 	</div>

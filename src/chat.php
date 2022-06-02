@@ -11,7 +11,6 @@
     $link_logout = "inc/logout.php";
     require("inc/header.inc.php");
     require("inc/db.inc.php");
-    require("inc/navbar.inc.php");
     if(isset($_POST["msg"])){
       $msg = $_POST["msg"];
       $statement = $pdo -> prepare ("INSERT INTO chats (username, msg, time) VALUES (?,?, UNIX_TIMESTAMP())");

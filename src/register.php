@@ -1,17 +1,17 @@
 <?php
     require("inc/db.inc.php");
     require("inc/header.inc.php");
-    if(isset($_POST["username"]) || isset($_POST["mail"])) {
+    if(isset($_POST["username"]) || isset($_POST["email"])) {
         $username = $_POST["username"];
-        $mail = $_POST["mail"];
-        $passwd = $_POST["passwd"];
+        $email = $_POST["email"];
+        $pass = $_POST["pass"];
         //Check Entries
         $statement = $pdo -> prepare ("SELECT * FROM users WHERE username = ? OR mail = ?");
-        $statement -> execute (array("$username", $mail));
+        $statement -> execute (array("$username", $email));
         if($statement -> rowCount() == 0 && $username != null){
             //If account is unique
             $statement = $pdo -> prepare ("INSERT INTO users (username, mail, pw_hash) VALUES (?,?,?)");
-            $statement -> execute (array($username, $mail, password_hash($passwd, PASSWORD_BCRYPT)));
+            $statement -> execute (array($username, $email, password_hash($pass, PASSWORD_BCRYPT)));
             $errmsg = "";
             header("Location: ../index.php");
         } else{
@@ -22,6 +22,9 @@
    <div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100">
+                <div class="login100-pic js-tilt" data-tilt>
+					<img src="view/images/img-01.png" alt="IMG">
+				</div>
 				<form class="login100-form validate-form" action="" method="post">
 					<span class="login100-form-title">
 						Chat registration

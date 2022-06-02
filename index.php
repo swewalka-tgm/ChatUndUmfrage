@@ -9,7 +9,7 @@
     $link_chat = "./src/chat.php";
     $link_poll = "./src/poll.php";
     $link_logout = "./src/inc/logout.php";
-    require("src/inc/header.inc.php");
+    require("src/inc/index_header.inc.php");
     
     ?>
     <div class="limiter">
@@ -42,5 +42,5 @@
 	
     
     <?php
-    require("src/inc/footer.inc.php");
+    require("src/inc/index_footer.inc.php");
 ?>
