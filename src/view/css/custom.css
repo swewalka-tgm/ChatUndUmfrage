@@ -29,9 +29,10 @@ span {
 .chat_wrapper{
     height: 70vh;
 }
-.chat_text{
-    height: 100%;
-    position: fixed;
+.chat{
+    height: 100px;
+    width: 100px;
+    position: relative;
     overflow-y: auto;
     overflow-x: hidden;
 }

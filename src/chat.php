@@ -18,6 +18,7 @@
     }
     $statement = $pdo -> query("SELECT  * FROM chats");
     $chats_arr = $statement -> fetchAll(PDO::FETCH_ASSOC);
+    $chats_arr = array_reverse($chats_arr);
     foreach($chats_arr as $chat_arr){
       $dt = new DateTime("now", new DateTimeZone("Europe/Vienna")); //first argument "must" be a string
       $dt->setTimestamp($chat_arr["time"]);
@@ -30,28 +31,20 @@
     <div class="limiter">
       <div class="container-login100">
         <div class="wrap-chat100">
-          <div class="col-md-12">
             <span class="login100-form-title">
               Chat
             </span>
-            <div class="container-lg chat_wrapper fixed-content rounded">
-              <div class="container-fluid border fixed-content border-secondary rounded chat_text mt-4 w-90">
-              <?php echo $chats?>
-            </div>
-            <form action="" method="POST" class="mt-0">
-              <div class="row">
-                <div class="col-md-12">
-                  <div class="form-group mt-3">
-                    <input type="text" name="msg" class="form-control" placeholder="Message">
-                  </div>
-                </div>
+            <div class="container-lg rounded">
+              <div class="container-fluid border border-secondary chat text-center rounded mt-4 w-90">
+                <?php echo $chats?>
               </div>
-            </form>
-          </div>
+              <form action="" method="POST" class="mt-0">
+                <input type="text" class="form-control input mt-1" id="msg" required name="msg">
+              </form>
+            </div>
         </div>
       </div>
   </div>
-	</div>
     <?php
     require("inc/footer.inc.php");
 ?>
