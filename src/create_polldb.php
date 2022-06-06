@@ -30,3 +30,21 @@
     <h2 class="mt-3">Die Umfrage wurde erfolgreich erstellt</h2>
     <a href="<?php echo $link_poll ?>"><button type="submit" name="submit" class="btn btn-primary mt-3">Zu den Umfragen</button></a>
 </div>
+
+<div class="limiter">
+      <div class="container-login100">
+        <div class="wrap-chat100">
+        <a class="btn logout" href="<?php echo $link_logout?>">Log Out</a>
+            <span class="login100-form-title">
+              Umfrage
+            </span>
+            <div class="container-lg rounded">
+                <h2 class="mt-3">Die Umfrage wurde erfolgreich erstellt</h2>
+                <a href="<?php echo $link_poll ?>"><button type="submit" name="submit" class="btn btn-primary mt-3">Zu der Umfrage</button></a>
+            </div>
+        </div>
+      </div>
+  </div>
+    <?php
+    require("inc/footer.inc.php");
+?>
