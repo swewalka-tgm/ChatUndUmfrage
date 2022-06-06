@@ -12,7 +12,6 @@
     $link_poll = "poll.php";
     $link_logout = "inc/logout.php";
     require("inc/header.inc.php");
-    require("inc/navbar.inc.php");
 
     //alle Daten abrufen
 

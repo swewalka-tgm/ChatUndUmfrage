@@ -31,6 +31,7 @@
     <div class="limiter">
       <div class="container-login100">
         <div class="wrap-chat100">
+        <a class="btn logout" href="<?php echo $link_logout?>">Log Out</a>
             <span class="login100-form-title">
               Chat
             </span>

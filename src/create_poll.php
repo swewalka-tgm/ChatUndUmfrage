@@ -12,7 +12,6 @@
     $link_create_polldb = "create_polldb.php";
     $link_logout = "inc/logout.php";
     require("inc/header.inc.php");
-    require("inc/navbar.inc.php");
 
     
 

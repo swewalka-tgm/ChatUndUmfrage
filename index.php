@@ -4,8 +4,6 @@
         header("Location: ./src/login.php");
     }
     $username = $_SESSION["username"];
-    $title = "Dashboard | Chat and Poll";
-    $link_index = "index.php";
     $link_chat = "./src/chat.php";
     $link_poll = "./src/poll.php";
     $link_logout = "./src/inc/logout.php";
@@ -15,6 +13,7 @@
     <div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-chat100">
+				<a class="btn logout" href="<?php echo $link_logout?>">Log Out</a>
 				<div class="col-md-12">
 					<span class="login100-form-title">Dashboard</span>
 							<a href="<?php echo $link_chat ?>">

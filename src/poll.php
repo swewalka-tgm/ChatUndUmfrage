@@ -34,10 +34,21 @@
     //$statement -> execute (array("Test1234", "Tobias", true, "Wie geht es dir?", "Gut", "Schlecht", 0, 0));
 
     ?>
-    <div class="container-lg border border-primary chat_wrapper rounded w-50 mt-5">
-      <h2 class="mt-3">Willkommen bei den Umfragen, <?=$username?>!</h2>
-      <div class="container-fluid border border-secondary rounded chat_text mt-4 w-90">
-          <?php echo $polls?>
+    <div class="limiter">
+      <div class="container-login100">
+        <div class="wrap-chat100">
+            <span class="login100-form-title">
+              Chat
+            </span>
+            <div class="container-lg rounded">
+              <form method="POST" id="poll form" class="mt-0">
+                <input type="text" class="form-control input mt-1" id="msg" required name="msg">
+              </form>
+            </div>
+        </div>
       </div>
-      <a href="<?php echo $link_create_poll ?>"><button type="submit" name="submit" class="btn btn-primary mt-3">Erstelle eine neue Umfrage</button></a>
-    </div>
+  </div>
+  <div class="radio">
+      <label><h4><input type="radio" name="poll_option" value="<?php $poll_arr["anwser1"] ?>"><?php $poll_arr["anwser1"]?></h4></label>
+      <label><h4><input type="radio" name="poll_option" value="<?php $poll_arr["anwser2"] ?>"><?php $poll_arr["anwser2"]?></h4></label>
+  </div>
