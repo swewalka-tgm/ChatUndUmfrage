@@ -4,6 +4,11 @@
     if(!isset($_SESSION["username"])){
         header("Location: ../src/login.php");
     }
+    $check = $pdo -> prepare("SELECT * FROM polls");
+    $check -> execute();
+    if($check -> rowCount() > 0){
+        header("Location: ../src/poll.php");
+    }
     $username = $_SESSION["username"];
     $link_index = "../index.php";
     $link_chat = "chat.php";

@@ -15,14 +15,11 @@
     $statement = $pdo -> query("SELECT  * FROM polls");
     $poll_arr = $statement -> fetchAll(PDO::FETCH_ASSOC);
     foreach($poll_arr as $poll_arr){
-      $options = $pdo -> query("SELECT  * FROM polls_choices WHERE pollid = " . $poll_arr["poll_id"]);
-      $options_arr = $options -> fetchAll(PDO::FETCH_ASSOC);
       $polls .=  "
           <div class=\"text-left w-90 mt-2 mb-2\">
-              <h6>" . "Frage: ". $poll_arr["question"] ."<br>". "</h6>
-              <h6>" . $options_arr[0]["choice"] . " </h6>
-              <h6>" . $options_arr[1]["choices"] . "</h6>
-              
+              <h6>" . $poll_arr["poll_question"] ."<br>". "</h6>
+              <h6 class="btn">" . $poll_arr["choice1"] . " </h6>
+              <h6>" . $poll_arr["choice2"] . "</h6>
           </div>" 
           ; 
     }
@@ -41,7 +38,5 @@
         </div>
       </div>
   </div>
-  <div class="radio">
-      <label><h4><input type="radio" name="poll_option" value="<?php $poll_arr["anwser1"] ?>"><?php $poll_arr["anwser1"]?></h4></label>
-      <label><h4><input type="radio" name="poll_option" value="<?php $poll_arr["anwser2"] ?>"><?php $poll_arr["anwser2"]?></h4></label>
-  </div>
+    <?php
+    require("inc/footer.inc.php");

@@ -22,12 +22,8 @@
     $answer2 = htmlspecialchars($_POST['anwser2']);
 
 
-    $statement = $pdo -> prepare ("INSERT INTO polls (poll_id,poll_question,created_from) VALUES(?,?,?)");
-    $statement -> execute (array(1,$question, $username));
-    $option1 = $pdo -> prepare ("INSERT INTO polls_choices (poll_id,choice) VALUES(?,?)");
-    $option1 -> execute (array(1,$answer1));
-    $option2 = $pdo -> prepare ("INSERT INTO polls_choices (poll_id,choice) VALUES(?,?)");
-    $option2 -> execute (array(1,$answer2));
+    $statement = $pdo -> prepare ("INSERT INTO polls (username,poll_question,choice1,choice2) VALUES(?,?,?,?)");
+    $statement -> execute (array($username,$question,$answer1,$answer2));
 
 ?>
 <div class="container-lg border border-primary chat_wrapper rounded w-50 mt-5">
