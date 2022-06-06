@@ -5,7 +5,6 @@
         header("Location: ../src/login.php");
     }
     $username = $_SESSION["username"];
-    $title = "Poll | Chat and Poll";
     $link_index = "../index.php";
     $link_chat = "chat.php";
     $link_poll = "poll.php";
@@ -13,25 +12,20 @@
     $link_logout = "inc/logout.php";    
     require("inc/header.inc.php");
 
-    $statement = $pdo -> query("SELECT  * FROM poll");
+    $statement = $pdo -> query("SELECT  * FROM polls");
     $poll_arr = $statement -> fetchAll(PDO::FETCH_ASSOC);
     foreach($poll_arr as $poll_arr){
-    $polls .=  "
+      $options = $pdo -> query("SELECT  * FROM polls_choices WHERE pollid = " . $poll_arr["poll_id"]);
+      $options_arr = $options -> fetchAll(PDO::FETCH_ASSOC);
+      $polls .=  "
           <div class=\"text-left w-90 mt-2 mb-2\">
-              <h4>" . "Ersteller: " . $poll_arr["username"] . "</h4>
-              <h5>" . "ID:" . $poll_arr["umfrageID"] . "</h5>   
               <h6>" . "Frage: ". $poll_arr["question"] ."<br>". "</h6>
-              <h6>" . $poll_arr["anwser1"] . " : " . "<button>Vote</button>" . "</h6>
-              <h6>" . $poll_arr["anwser2"] . " : " . "<button>Vote</button>" . "</h6>
+              <h6>" . $options_arr[0]["choice"] . " </h6>
+              <h6>" . $options_arr[1]["choices"] . "</h6>
               
           </div>" 
           ; 
     }
-
-    //print("Hallo");
-
-    //$statement = $pdo -> prepare ("INSERT INTO poll (umfrageID, username, anonym, question, question1, question2, answerYES, answerNO) VALUES (?,?,?,?,?,?,?,?)");
-    //$statement -> execute (array("Test1234", "Tobias", true, "Wie geht es dir?", "Gut", "Schlecht", 0, 0));
 
     ?>
     <div class="limiter">
@@ -41,9 +35,8 @@
               Chat
             </span>
             <div class="container-lg rounded">
-              <form method="POST" id="poll form" class="mt-0">
-                <input type="text" class="form-control input mt-1" id="msg" required name="msg">
-              </form>
+              <div class="container-fluid border border-secondary chat text-center rounded mt-4 w-90">
+                <?php echo $polls?>
             </div>
         </div>
       </div>

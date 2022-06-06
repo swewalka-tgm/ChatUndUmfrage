@@ -4,9 +4,12 @@
     if(!isset($_SESSION["username"])){
         header("Location: ../src/login.php");
     }
-    $umfrageid = rand(1,1000);
+    $check = $pdo -> prepare("SELECT * FROM polls");
+    $check -> execute();
+    if($check -> rowCount() > 0){
+        header("Location: ../src/poll.php");
+    }
     $username = $_SESSION["username"];
-    $title = "Poll | Chat and Poll";
     $link_index = "../index.php";
     $link_chat = "chat.php";
     $link_poll = "poll.php";
@@ -14,24 +17,17 @@
     require("inc/header.inc.php");
 
     //alle Daten abrufen
+    $question = htmlspecialchars($_POST['question']);
+    $answer1 = htmlspecialchars($_POST['anwser1']);
+    $answer2 = htmlspecialchars($_POST['anwser2']);
 
-    $anonym = htmlspecialchars($_POST['anonym']);
-    $question = htmlspecialchars($_POST['frage']);
-    $antwort1 = htmlspecialchars($_POST['anwser1']);
-    $antwort2 = htmlspecialchars($_POST['anwser2']);
 
-    //TODO: Anonym-Check
-    $anonym = true;
-
-    echo "$umfrageid";
-    echo "$username";
-    echo "true";
-    echo "$question";
-    echo "$antwort1";
-    echo "$antwort2";
-
-    $statement = $pdo -> prepare ("INSERT INTO poll (umfrageID, username, anonym, question, anwser1, anwser2, anwser1count, anwser2count) VALUES (?,?,?,?,?,?,?,?)");
-    $statement -> execute (array($umfrageid, $username, $anonym, $question, $antwort1, $antwort2, 0, 0));
+    $statement = $pdo -> prepare ("INSERT INTO polls (poll_id,poll_question,created_from) VALUES(?,?,?)");
+    $statement -> execute (array(1,$question, $username));
+    $option1 = $pdo -> prepare ("INSERT INTO polls_choices (poll_id,choice) VALUES(?,?)");
+    $option1 -> execute (array(1,$answer1));
+    $option2 = $pdo -> prepare ("INSERT INTO polls_choices (poll_id,choice) VALUES(?,?)");
+    $option2 -> execute (array(1,$answer2));
 
 ?>
 <div class="container-lg border border-primary chat_wrapper rounded w-50 mt-5">

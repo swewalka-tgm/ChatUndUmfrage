@@ -5,7 +5,7 @@
     }
     $username = $_SESSION["username"];
     $link_chat = "./src/chat.php";
-    $link_poll = "./src/poll.php";
+    $link_poll = "./src/create_poll.php";
     $link_logout = "./src/inc/logout.php";
     require("src/inc/index_header.inc.php");
     

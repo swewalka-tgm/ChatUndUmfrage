@@ -4,10 +4,6 @@
         header("Location: ../src/login.php");
     }
     $username = $_SESSION["username"];
-    $title = "Chat | Chat and Poll";
-    $link_index = "../index.php";
-    $link_chat = "chat.php";
-    $link_poll = "poll.php";
     $link_logout = "inc/logout.php";
     require("inc/header.inc.php");
     require("inc/db.inc.php");

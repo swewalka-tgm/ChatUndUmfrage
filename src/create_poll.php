@@ -5,7 +5,6 @@
         header("Location: ../src/login.php");
     }
     $username = $_SESSION["username"];
-    $title = "Poll | Chat and Poll";
     $link_index = "../index.php";
     $link_chat = "chat.php";
     $link_poll = "poll.php";
@@ -27,32 +26,27 @@
     <!--Question-->
     <div class="col">
         <div class="input-group">
-        <label for="frage" class="input-group-text">Frage</label>
-        <input type="text" class="form-control" id="frage" placeholder="Frage" name="frage" required />
+        <label for="question" class="input-group-text">Question</label>
+        <input type="text" class="form-control" id="question" placeholder="Question" name="question" required />
         </div>
     </div>
 
     <!--Antwort1-->
     <div class="col">
         <div class="input-group"> 
-        <label for="anwser1" class="input-group-text">Antwort1</label>
-        <input type="text" class="form-control" id="anwser1" placeholder="Antwort 1" name="anwser1" required />
+        <label for="anwser1" class="input-group-text">Answer</label>
+        <input type="text" class="form-control" id="anwser1" placeholder="Answer" name="anwser1" required />
         </div>
     </div>
 
     <!--Antwort2-->
     <div class="col">
         <div class="input-group"> 
-        <label for="anwser2" class="input-group-text">Antwort2</label>
-        <input type="text" class="form-control" id="anwser2" placeholder="Antwort 2" name="anwser2" required />
+        <label for="anwser2" class="input-group-text">Answer</label>
+        <input type="text" class="form-control" id="anwser2" placeholder="Answer" name="anwser2" required />
         </div>
     </div>
 
-    </div>
-
-    <div class="form-group form-check">
-        <input type="checkbox" class="form-check-input" id="anonym">
-        <label class="form-check-label" for="anonym">anonym</label>
     </div>
     
     <!--Row-->
